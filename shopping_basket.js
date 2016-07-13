@@ -1,6 +1,7 @@
 var basket = {
   items: [],
   price: 0,
+  
   add: function(item){
     this.items.push(item)
   },
@@ -13,11 +14,18 @@ var basket = {
   },
 
   total: function(item){
-  for (var i = 0; i < basket.items.length; i += 1){
-  basket.price += basket.items.price[i]
-  return basket.price
+   
+    for (var i = 0; i < this.items.length;  i++){
+      this.price += this.items[i].price;
+    }
+
+    return this.price;
+  }
+
+  discount: function(){
+    if (this.price >= 20 ){
+      this.price * 0.80}
     }
   }
-}
 
-module.exports = basket
+  module.exports = basket
